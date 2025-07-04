@@ -13,11 +13,15 @@ function App() {
     authService
       .getCurrentUser()
       .then((userData) => {
+        console.log(` userData : ${userData}`);
         if (userData) {
           dispatch(login(userData));
         } else {
           dispatch(logout());
         }
+      })
+      .catch((err) => {
+        console.log("failed to get current user data in app.jsx : ", err);
       })
       .finally(() => setLoading(false));
   }, []);
