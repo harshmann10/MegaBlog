@@ -7,6 +7,7 @@ import Button from "./Button";
 import Input from "./Input";
 import Select from "./Select";
 import Signup from "./SignUp";
+import RTE from "./RTE";
 
 export {
     Footer,
@@ -18,4 +19,5 @@ export {
     Input,
     Select,
     Signup,
+    RTE 
 };
