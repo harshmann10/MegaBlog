@@ -106,10 +106,7 @@ export class DatabaseService {
 
     async deleteFile(fileId) {
         try {
-            await this.bucket.deleteFile(
-                config.appwriteBucketId,
-                fileId
-            );
+            await this.bucket.deleteFile(config.appwriteBucketId, fileId);
             return true;
         } catch (err) {
             console.log("Appwrite service :: deleteFile :: error", err);
@@ -119,10 +116,8 @@ export class DatabaseService {
 
     getFilePreview(fileId) {
         try {
-            this.bucket.getFilePreview(
-                config.appwriteBucketId,
-                fileId
-            );
+            return this.bucket.getFileView(config.appwriteBucketId, fileId);
+            // .replace("preview", "view") + "&mode=admin";
         } catch (err) {
             console.log("Appwrite service :: getFilePreview :: error", err);
             return false;

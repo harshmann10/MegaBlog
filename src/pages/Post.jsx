@@ -39,7 +39,7 @@ export default function Post() {
                     <img
                         src={databaseService.getFilePreview(post.featuredImage)}
                         alt={post.title}
-                        className="rounded-xl"
+                        className="rounded-xl w-full h-auto max-h-screen max-w-3xl"
                     />
 
                     {isAuthor && (

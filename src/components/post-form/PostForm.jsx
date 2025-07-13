@@ -10,43 +10,54 @@ function PostForm({ post }) {
         useForm({
             defaultValues: {
                 title: post?.title || "",
-                slug: post?.slug || "",
+                slug: post?.$id || "",
                 content: post?.content || "",
                 status: post?.status || "active",
             },
         });
     const navigate = useNavigate();
-    const userData = useSelector((state) => state.user.userData);
+    const userData = useSelector((state) => state.auth.userData);
 
     const submit = async (data) => {
         if (post) {
-            const file = data.image[0]
-                ? await databaseService.uploadFile(data.image[0])
-                : null;
+            let newFile = null;
+            try {
+                newFile = data.image[0]
+                    ? await databaseService.uploadFile(data.image[0])
+                    : null;
 
-            const dbPost = await databaseService.updatePost(post.$id, {
-                ...data,
-                featuredImage: file ? file.$id : undefined,
-            });
+                const dbPost = await databaseService.updatePost(post.$id, {
+                    ...data,
+                    featuredImage: newFile ? newFile.$id : undefined,
+                });
 
-            if (dbPost) {
-                if (file) {
-                    databaseService.deleteFile(post.featuredImage);
+                if (dbPost) {
+                    if (newFile) {
+                        await databaseService.deleteFile(post.featuredImage);
+                    }
+                    navigate(`/post/${dbPost.$id}`);
                 }
-                navigate(`/post/${dbPost.$id}`);
+            } catch (error) {
+                console.error("Error updating post:", error);
+                if (newFile) await databaseService.deleteFile(newFile.$id);
+                alert("Failed to update post. Please try again.");
             }
         } else {
-            const file = await databaseService.uploadFile(data.image[0]);
-            if (file) {
-                const fileId = file.$id;
-                data.featuredImage = fileId;
+            let file = null;
+            try {
+                file = await databaseService.uploadFile(data.image[0]);
+
+                data.featuredImage = file.$id;
                 const dbPost = await databaseService.createPost({
                     ...data,
                     userId: userData.$id,
                 });
-                if (dbPost) {
-                    navigate(`/post/${dbPost.$id}`);
-                }
+
+                if (dbPost) navigate(`/post/${dbPost.$id}`);
+            } catch (error) {
+                console.error("Error creating post:", error);
+                if (file) await databaseService.deleteFile(file.$id);
+                alert("Failed to create post. Please try again.");
             }
         }
     };

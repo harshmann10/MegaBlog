@@ -13,7 +13,7 @@ function App() {
     authService
       .getCurrentUser()
       .then((userData) => {
-        console.log(` userData : ${userData}`);
+        console.log("userData :", userData);
         if (userData) {
           dispatch(login(userData));
         } else {
@@ -30,7 +30,9 @@ function App() {
     <div className=" flex flex-wrap content-between bg-gray-400">
       <div className="w-full block">
         <Header />
-        <main>{/* todo: <Outlet /> */}</main>
+        <main>
+          <Outlet />
+        </main>
         <Footer />
       </div>
     </div>
