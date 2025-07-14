@@ -27,22 +27,20 @@ function App() {
   }, []);
 
   return !loading ? (
-    <div className=" flex flex-wrap content-between bg-gray-400">
-      <div className="w-full block">
-        <Header />
-        <main>
-          <Outlet />
-        </main>
-        <Footer />
-      </div>
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-gray-700 via-gray-600 to-gray-700">
+      <Header />
+      <main className="flex-grow">
+        <Outlet />
+      </main>
+      <Footer />
     </div>
   ) : (
-    <div className="flex flex-col justify-center items-center h-screen w-full bg-gray-400">
+    <div className="flex flex-col justify-center items-center h-screen w-full bg-gradient-to-b from-gray-700 via-gray-600 to-gray-700">
       <div
         className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-blue-500"
         aria-label="Loading"
       ></div>
-      <span className="mt-4 text-blue-700 font-semibold">Loading...</span>
+      <span className="mt-4 text-blue-500 font-semibold">Loading...</span>
     </div>
   );
 }

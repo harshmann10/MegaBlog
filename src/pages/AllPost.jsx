@@ -17,13 +17,14 @@ function AllPost() {
             );
     }, []);
     return (
-        <div className="w-full py-8">
+        <div className="w-full py-8 bg-gradient-to-b from-gray-700 via-gray-600 to-gray-700 min-h-[60vh]">
             <Container>
-                <div className="flex flex-wrap">
+                <h1 className="text-3xl font-bold text-white mb-10 text-center">
+                    All Posts
+                </h1>
+                <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                     {posts.map((post) => (
-                        <div key={post.$id} className="p-2 w-1/4">
-                            <Postcard {...post} />
-                        </div>
+                        <Postcard key={post.$id} {...post} />
                     ))}
                 </div>
             </Container>
