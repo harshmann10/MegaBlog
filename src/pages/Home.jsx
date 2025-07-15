@@ -9,7 +9,6 @@ function Home() {
     const authStatus = useSelector((state) => state.auth.status);
 
     useEffect(() => {
-        // Only fetch posts if the user is logged in
         if (authStatus) {
             databaseService.getPosts().then((posts) => {
                 if (posts) {
@@ -17,14 +16,13 @@ function Home() {
                 }
             });
         } else {
-            // Clear posts if the user logs out or is not logged in
             setPosts([]);
         }
-    }, [authStatus]); // Re-run effect when authentication status changes
+    }, [authStatus]);
 
     if (!authStatus) {
         return (
-            <div className="w-full py-20 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-800 min-h-[70vh] flex items-center justify-center text-white">
+            <div className="w-full py-5 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-700 min-h-[70vh] flex items-center justify-center text-white">
                 <Container>
                     <div className="text-center">
                         <h1 className="text-6xl font-extrabold mb-6 animate-fade-in-down">
@@ -70,7 +68,7 @@ function Home() {
         );
     }
     return (
-        <div className="w-full py-8 bg-gradient-to-b from-gray-700 via-gray-600 to-gray-700 min-h-[60vh]">
+        <div className="w-full py-8 bg-gradient-to-b from-gray-800 via-gray-700 to-gray-700 min-h-[60vh]">
             <Container>
                 <h1 className="text-3xl font-bold text-white mb-8 text-center">
                     Latest Posts

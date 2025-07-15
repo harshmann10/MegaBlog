@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-import { Logo } from ".";
+import { Logo } from "./index";
 
 function Footer() {
   return (
     <footer className="py-10 bg-gray-800 text-white mt-auto border-t border-gray-700">
       <div className="mx-auto max-w-7xl px-4">
-        <div className="-m-6 flex flex-wrap">
+        <div className="-m-6 flex flex-wrap justify-center text-center md:text-left">
           <div className="w-full p-6 md:w-1/2 lg:w-5/12">
-            <div className="flex h-full flex-col justify-between">
-              <div className="mb-4 inline-flex items-center gap-4">
+            <div className="flex flex-col">
+              <div className="mb-4 inline-flex items-center justify-center md:justify-start gap-4">
                 <Logo width="100px" />
                 <span className="text-xl font-bold tracking-tight text-white">
                   PixelBlog
@@ -23,7 +23,7 @@ function Footer() {
             </div>
           </div>
           <div className="w-full p-6 md:w-1/2 lg:w-2/12">
-            <div className="h-full">
+            <div>
               <h3 className="tracking-wider mb-9 text-sm font-semibold uppercase text-gray-400">
                 Company
               </h3>
@@ -46,8 +46,10 @@ function Footer() {
                 </li>
                 <li className="mb-4">
                   <a
-                    className="flex gap-4 mt-2"
+                    className="inline-flex"
                     href="https://github.com/harshmann10/PixelBlog"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <svg
                       width="24"
@@ -59,12 +61,11 @@ function Footer() {
                     </svg>
                   </a>
                 </li>
-                <li></li>
               </ul>
             </div>
           </div>
           <div className="w-full p-6 md:w-1/2 lg:w-2/12">
-            <div className="h-full">
+            <div>
               <h3 className="tracking-wider mb-9 text-sm font-semibold uppercase text-gray-400">
                 Support
               </h3>
@@ -88,7 +89,7 @@ function Footer() {
                 <li className="mb-4">
                   <a
                     href="mailto:harshmann8008@gmail.com"
-                    className="hover:text-pink-400 transition-colors"
+                    className="inline-flex"
                   >
                     <svg
                       width="24"
@@ -100,12 +101,11 @@ function Footer() {
                     </svg>
                   </a>
                 </li>
-                <li></li>
               </ul>
             </div>
           </div>
           <div className="w-full p-6 md:w-1/2 lg:w-3/12">
-            <div className="h-full">
+            <div>
               <h3 className="tracking-wider mb-9 text-sm font-semibold uppercase text-gray-400">
                 Legals
               </h3>

@@ -2,9 +2,9 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import authService from "../appwrite/auth";
-import { login as authLogin } from "../store/authSlice";
-import { Logo, Input, Button } from "./index";
+import authService from "../../appwrite/auth";
+import { login as authLogin } from "../../store/authSlice";
+import { Logo, Input, Button } from "../index";
 
 function Signup() {
     const dispatch = useDispatch();
@@ -40,7 +40,7 @@ function Signup() {
                     Already have any account?&nbsp;
                     <Link
                         to="/login"
-                        className="font-medium text-primary transition-all duration-200 hover:underline"
+                        className="text-blue-600 font-medium text-primary transition-all duration-200 hover:underline"
                     >
                         Sign In
                     </Link>
