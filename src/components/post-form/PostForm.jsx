@@ -45,19 +45,22 @@ function PostForm({ post }) {
         } else {
             let file = null;
             try {
-                file = await databaseService.uploadFile(data.image[0]);
+                if (data.image && data.image[0]) {
+                    file = await databaseService.uploadFile(data.image[0]);
+                    data.featuredImage = file.$id;
+                }
 
-                data.featuredImage = file.$id;
                 const dbPost = await databaseService.createPost({
                     ...data,
                     userId: userData.$id,
                 });
-
                 if (dbPost) navigate(`/post/${dbPost.$id}`);
             } catch (error) {
                 console.error("Error creating post:", error);
-                if (file) await databaseService.deleteFile(file.$id);
                 alert("Failed to create post. Please try again.");
+            } finally {
+                if (file)
+                    await databaseService.deleteFile(file.$id);
             }
         }
     };
