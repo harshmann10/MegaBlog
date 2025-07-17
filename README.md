@@ -2,24 +2,30 @@
 
 Welcome to the GitHub repository for the Pixel Blog App! This repository contains the source code for a powerful blogging platform equipped with essential features like user authentication, post management, and content creation. It utilizes Appwrite as the backend service for managing the database and storage operations.
 
-![Pixel Blog Dashboard]()
+![Pixel Blog Dashboard](https://github.com/user-attachments/assets/e41d365a-c112-4123-9cc1-14d3657f3f53)
 
 ## Introduction
 
 Pixel Blog is a full-fledged blog application built with React.js that offers the following features:
 
+- **Home Page:**
+![home page](https://github.com/user-attachments/assets/5afd7baf-1f10-434c-b72d-6f649d190712)
+
 - **User Management:**
 
   - Users can register for new accounts using a signup form with validation (powered by React Hook Form).
-  - ![Signup Form]()
+  ![Signup Form](https://github.com/user-attachments/assets/f7f3ef5a-fc1c-4165-a0a4-601f5659ab37)
+
   - Existing users can log in securely using Appwrite for authentication.
-  - ![Login Form]()
+  ![Login Form](https://github.com/user-attachments/assets/da3cb766-37d1-48e4-800f-a5c7493fa2c4)
+
   - Users can log out seamlessly, clearing authentication tokens.
 
 - **Post Creation:**
 
   - Authorized users can create new blog posts, crafting content with ease using a rich text editor (like TinyMCE).
-  - ![Create Post]()
+  ![Create Post](https://github.com/user-attachments/assets/b45e94d0-44a7-43f9-a98c-64d65ca2a640)
+
   - Post data is stored securely in Appwrite's database.
 
 - **Post Listing:**
@@ -27,14 +33,17 @@ Pixel Blog is a full-fledged blog application built with React.js that offers th
   - A clear and organized list displays all published blog posts.
   - Each post showcases the title, author, and a snippet of the content.
   - Consider implementing pagination or sorting for extensive post management (optional).
-  - ![Post Listing]()
+  ![Post Listing](https://github.com/user-attachments/assets/6e6415fc-413b-459f-b7ea-059916719c22)
+
 
 - **Update Post:**
 
   - Users can update their existing post if the same user that is logged in and owns the post.
   - Users can also delete their own post.
-  - ![Update Post 1]()
-  - ![Update Post 2]()
+  ![Update Post 1](https://github.com/user-attachments/assets/bcb4becf-63b6-47a2-a556-237ef3aa4f88)
+
+  ![Update Post 2](https://github.com/user-attachments/assets/e4394a36-8718-4dc4-a2bf-a0649e4d5d09)
+
 
 - **Route Management:**
   - The application leverages [react-router-dom](https://reactrouter.com/en/main) for efficient routing between different sections.
