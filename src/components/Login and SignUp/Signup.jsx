@@ -51,6 +51,7 @@ function Signup() {
                         <Input
                             label="Name: "
                             placeholder="Entre your Full Name"
+                            className="text-black"
                             {...register("name", {
                                 required: true,
                             })}
@@ -59,6 +60,7 @@ function Signup() {
                             label="Email: "
                             placeholder="Enter your Email"
                             type="email"
+                            className="text-black"
                             {...register("email", {
                                 required: true,
                                 validate: {
@@ -72,6 +74,7 @@ function Signup() {
                             label="Password: "
                             placeholder="Enter your Password"
                             type="password"
+                            className="text-black"
                             {...register("password", {
                                 required: true,
                             })}
